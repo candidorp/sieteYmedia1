@@ -31,5 +31,12 @@ Para conseguir el efecto deseado observa que:
 - ¿Cómo devuelve los datos SieteYMedia a InterfaceConsola?. Supongamos que InterfaceConsola quiere imprimir las cartas que tiene en un momento dado el Jugador ¿Cómo le pasa SieteYMedia esta información a interfaceConsola?. SieteYMedia puede devolver un simple String para que lo imprima InterfaceConsola o bien una estructura más compleja como una lista  de cartas. La primera es muy sencilla  pero la segunda es más flexible ya que conduce  a InterfaceConsola a  imprimir un String concreto que a lo mejor querría con otro formato, en otro idioma, etc.. Usamos la segunda!
 
 - piensa detenidamente que si quiero que SieteYMedia sea una clase independiente de la E/S: ¿InterfaceConsola usa y conoce la existencia de SieteYMedia?, o bien, es SieteYMedia quien usa y conoce la existencia de InterfaceConsola?
+
+En la siguiente imagen  observamos una posible estructuracción  de  las clases InterfaceConsola y SieteYMedia que recoge las ideas anteriores. 
+
+
+![interfaceusasieteymedia](interfaceusasieteymedia.png)
+
+
   
 El check esencial para saber si hicimos bien nuestro trabajo es: puedo reutilizar mi clase SieteYMedia, sin modificarla,  en otra App que por ejemplo tenga una interfac gráfica
