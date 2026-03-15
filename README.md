@@ -39,4 +39,4 @@ En la siguiente imagen  observamos una posible estructuracción  de  las clases 
 
 
   
-El check esencial para saber si hicimos bien nuestro trabajo es: puedo reutilizar mi clase SieteYMedia, sin modificarla,  en otra App que por ejemplo tenga una interfac gráfica
+El check esencial para saber si hicimos bien nuestro trabajo es: ¿puedo reutilizar mi clase SieteYMedia, sin modificarla,  en otra App con otro estilo de interface, por ejemplo que tenga una interfac gráfica?
