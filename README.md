@@ -1,6 +1,6 @@
 # SieteYmediaRefac  ¡En KOTLIN!
 
-Refactorizar un proyecto existente para que cumpla la arquitectura de dos capas.
+Refactorizar un proyecto existente para que cumpla la ![arquitectura de dos capas](https://manuais.pages.iessanclemente.net/apuntes/2.programacion/kotlin/06_disenoorientadoobjetos/61.arquitecturacapas/1.dosniveles/index.html).
 
 
 ## Juego siete y media
