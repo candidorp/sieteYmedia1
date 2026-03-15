@@ -10,16 +10,21 @@ Las  siguientes  clases implementan una versión muy reducida del famoso juego d
 Observa que la clase GameControler mezcla la lógica de negocio y la lógica de presentación, y por lo tanto,  claramente no cumple el [principio de responsabilidad única](https://manuais.pages.iessanclemente.net/apuntes/2.programacion/kotlin/06_disenoorientadoobjetos/62.principiossolid/1.srp/index.html). 
 
 ## SE PIDE
-Reestructurar el  proyecto  que:  
+Reestructurar el  proyecto  de forma que:  
 - El paquete recursos es el mismo. 
 - Gamecontroler desaparece para dividirse  en dos clases
    - SieteYMedia.java 
    - InterfaceConsola.
      
-  Quedando por tanto la App organizada en:
+
+Quedando por tanto la App organizada en:
 - Capa lógica: clases de paquete recursos y clase SieteYMedia
 - Capa presentación: Clase InterfaceConsola
+
+
 ![estructuraproyecto.png](estructuraproyecto.png)
+
+
 Para conseguir el efecto deseado observa que:
 - La aplicación ahora es más compleja, se divide una clase en dos y surgen nuevos métodos necesarios para la comunicación entre ellas. ¿Merece la pena?. Vamos a suponer que sí porque queremos hacer más adelante para este juego su versión gráfica, de esta manera, separando la lógica de la presentación  sólo tendremos que volver a escribir la clase Interface para adecuarla a la nueva entrada/salida pero la clase SieteYMedia no tendremos que tocarla.
 - SieteYMedia debe estar escrita de forma que sea reutilizable en una aplicación gráfica o web. El teclado y la pantalla sólo los maneja InterfaceConsola. ¡ni un println ni un readln()/Scanner en SieteYMedia!
@@ -27,4 +32,4 @@ Para conseguir el efecto deseado observa que:
 
 - piensa detenidamente que si quiero que SieteYMedia sea una clase independiente de la E/S: ¿InterfaceConsola usa y conoce la existencia de SieteYMedia?, o bien, es SieteYMedia quien usa y conoce la existencia de InterfaceConsola?
   
-
+El check esencial para saber si hicimos bien nuestro trabajo es: puedo reutilizar mi clase SieteYMedia, sin modificarla,  en otra App que por ejemplo tenga una interfac gráfica
