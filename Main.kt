@@ -2,8 +2,6 @@ fun main() {
     val interfaceConsola = InterfaceConsola()
     val sieteYmedia = SieteYmedia()
 
-    interfaceConsola.sieteYmedia = sieteYmedia
-
     val cartasJugador = sieteYmedia.cartasJugador
     val cartasBanca = sieteYmedia.cartasBanca
 
@@ -12,52 +10,56 @@ fun main() {
 
 
 
-    var game = true
 
-    while (game == true){
-        var opc = 'C'
-        while(opc == 'C'){
+    var opc = 'C'
 
-            interfaceConsola.mensajeTurnoJugador()
+    while (opc == 'C') {
 
-            sieteYmedia.darCartaJugador()
+        interfaceConsola.mensajeTurnoJugador()
 
-            interfaceConsola.mostrarCartas("jugador", cartasJugador)
-            interfaceConsola.mostrarValorCartas("jugador", cartasJugador)
+        sieteYmedia.darCartaJugador()
+        val valorCartasJugador = sieteYmedia.valorCartas(cartasJugador)
 
-            if(sieteYmedia.valorCartas(cartasJugador) >= 7.5) break
+        interfaceConsola.mostrarCartas("jugador", cartasJugador)
+        interfaceConsola.mostrarValorCartas("jugador", valorCartasJugador)
 
-            opc = interfaceConsola.preguntarDecision()
+        if (sieteYmedia.valorCartas(cartasJugador) >= 7.5) break
+
+        opc = interfaceConsola.preguntarDecision()
+    }
+
+    while (sieteYmedia.valorCartas(cartasBanca) < 7 && sieteYmedia.valorCartas(cartasBanca) <= sieteYmedia.valorCartas(cartasJugador)) {
+
+        if (sieteYmedia.valorCartas(cartasJugador) > 7.5) {
+            interfaceConsola.mensajePerdedorJugador()
+            break
+        } else if (sieteYmedia.valorCartas(cartasJugador) == 7.5) {
+            interfaceConsola.mensajeGanadorJugador()
+            break
         }
 
-        while(sieteYmedia.valorCartas(cartasBanca) < 7 && sieteYmedia.valorCartas(cartasBanca) <= sieteYmedia.valorCartas(cartasJugador)){
+        interfaceConsola.mensajeTurnoBanca()
 
-            if(sieteYmedia.valorCartas(cartasJugador) > 7.5){
-                interfaceConsola.mensajePerdedorJugador()
-                game = false
-                break
-            }else if(sieteYmedia.valorCartas(cartasJugador) == 7.5){
-                interfaceConsola.mensajeGanadorJugador()
-                game = false
-                break
-            }
+        sieteYmedia.darCartaBanca()
+        val valorCartasBanca = sieteYmedia.valorCartas(cartasBanca)
 
-            interfaceConsola.mensajeTurnoBanca()
+        interfaceConsola.mostrarCartas("banca", cartasBanca)
+        interfaceConsola.mostrarValorCartas("banca", valorCartasBanca)
 
-            sieteYmedia.darCartaBanca()
-
-            interfaceConsola.mostrarCartas("banca", cartasBanca)
-            interfaceConsola.mostrarValorCartas("banca", cartasBanca)
-
-            if(sieteYmedia.valorCartas(cartasBanca) > 7.5){
-                interfaceConsola.mensajePierdeBanca()
-                game = false
-                break
-            }else if(sieteYmedia.valorCartas(cartasBanca) == 7.5){
-                interfaceConsola.mensajeGanadorBanca()
-                game = false
-                break
-            }
+        if (sieteYmedia.valorCartas(cartasBanca) > 7.5) {
+            interfaceConsola.mensajePierdeBanca()
+            break
+        } else if (sieteYmedia.valorCartas(cartasBanca) == 7.5) {
+            interfaceConsola.mensajeGanadorBanca()
+            break
         }
+
+        when{
+            sieteYmedia.decidirGanador() == "jugador" -> interfaceConsola.mensajeGanadorJugador()
+            sieteYmedia.decidirGanador() == "banca" -> interfaceConsola.mensajeGanadorBanca()
+            sieteYmedia.decidirGanador() == "empate" -> interfaceConsola.mensajeEmpate()
+        }
+        break
     }
 }
+

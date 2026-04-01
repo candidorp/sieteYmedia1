@@ -2,7 +2,6 @@ import recursos.Carta
 import kotlin.collections.forEach
 
 class InterfaceConsola{
-    var sieteYmedia = SieteYmedia()
     fun presentarJuego() {
         println("- El usuario es el jugador y el ordenador la banca.")
         println("- No hay en la baraja 8s y 9s. El 10 es la sota, el 11 el caballo y el 12 el Rey.")
@@ -33,15 +32,15 @@ class InterfaceConsola{
         return readln().trim().uppercase()[0]
     }
 
-    fun mostrarValorCartas(turno: String, cartas:List<Carta>){
+    fun mostrarValorCartas(turno: String, valor: Double){
         if(turno.lowercase() == "jugador"){
             print("Este el valor de tus cartas:")
-            print(sieteYmedia.valorCartas(cartas))
+            print(valor)
             println()
         }else{
             println()
             print("Este el valor de mis cartas:")
-            print(sieteYmedia.valorCartas(cartas))
+            print(valor)
             println()
         }
     }
@@ -75,5 +74,9 @@ class InterfaceConsola{
 
     fun mensajeTurnoJugador(){
         println("\nTurno del jugador ...")
+    }
+
+    fun mensajeEmpate(){
+        println("Curiosamente empatamos")
     }
 }
