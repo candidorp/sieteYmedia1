@@ -3,7 +3,6 @@ import kotlin.collections.forEach
 
 class InterfaceConsola{
     var sieteYmedia = SieteYmedia()
-    val cartasJugador = sieteYmedia.cartasJugador
     fun presentarJuego() {
         println("- El usuario es el jugador y el ordenador la banca.")
         println("- No hay en la baraja 8s y 9s. El 10 es la sota, el 11 el caballo y el 12 el Rey.")
